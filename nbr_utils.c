@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   putnbr.c                                           :+:      :+:    :+:   */
+/*   nbr_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maax <maax@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 13:37:05 by malauzie          #+#    #+#             */
-/*   Updated: 2024/03/25 09:22:57 by maax             ###   ########.fr       */
+/*   Updated: 2024/03/25 09:58:39 by maax             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,15 @@
 
 void	ft_putnbr_p(unsigned long nbr, char *base, int *len)
 {
-	int	base_len;
+	unsigned long	base_len;
 
-	base_len = 0;
-	while (base[base_len])
-		base_len++;
-	if (nbr / base_len > 0)
+	base_len = ft_strlen(base);
+	if (!nbr)
+	{
+		*len += write (1, "(nil)", 5);
+		return ;
+	}
+	if (nbr >= base_len)
 		ft_putnbr_p(nbr / base_len, base, len);
 	*len += write(1, &base[nbr % base_len], 1);
 }
@@ -42,27 +45,12 @@ void	ft_putnbr(int n, int *len)
 	*len += write (1, &result, 1);
 }
 
-void	ft_putnbr_unsigned(unsigned int n, int *len)
+void	ft_putnbr_base(unsigned int nbr, char *base, int *len)
 {
-	char	result;
+	unsigned int	base_len;
 
-	result = 0;
-	if (n >= 10)
-	{
-		ft_putnbr_unsigned(n / 10, len);
-	}
-	result = (result * 10) + n % 10 + 48;
-	*len += write (1, &result, 1);
-}
-
-void	ft_putnbr_basehex(unsigned int nbr, char *base, int *len)
-{
-	int		base_len;
-
-	base_len = 0;
-	while (base[base_len])
-		base_len++;
-	if (nbr / base_len > 0)
-		ft_putnbr_basehex(nbr / base_len, base, len);
+	base_len = ft_strlen(base);
+	if (nbr >= base_len)
+		ft_putnbr_base(nbr / base_len, base, len);
 	*len += write(1, &base[nbr % base_len], 1);
 }

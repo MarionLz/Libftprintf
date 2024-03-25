@@ -6,16 +6,16 @@
 #    By: maax <maax@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/20 10:10:11 by malauzie          #+#    #+#              #
-#    Updated: 2024/03/25 09:25:01 by maax             ###   ########.fr        #
+#    Updated: 2024/03/25 09:32:12 by maax             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC = cc
+CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
 SRC =	ft_printf.c \
-		putnbr.c \
-		putstr.c \
+		nbr_utils.c \
+		str_utils.c \
 
 OBJ = $(SRC:.c=.o)
 

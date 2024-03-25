@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: malauzie <malauzie@student.42.fr>          +#+  +:+       +#+        */
+/*   By: maax <maax@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 09:06:47 by malauzie          #+#    #+#             */
-/*   Updated: 2023/10/20 15:44:07 by malauzie         ###   ########.fr       */
+/*   Updated: 2024/03/25 10:00:45 by maax             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,19 @@
 # include <stdarg.h>
 # include <unistd.h>
 
-int		ft_printf(const	char *format, ...);
-void	ft_putchar(char c, int *len);
-int		ft_convert_arg(char indic, va_list args, int *len);
-void	ft_putstr(char *str, int *len);
-void	ft_putnbr(int n, int *len);
+/*--------------------------------FT_PRINTF.c---------------------------------*/
+
+int	ft_convert_arg(char indic, va_list args, int *len);
+int	ft_printf(const	char *format, ...);
+
+/*--------------------------------NBR_UTILS.c---------------------------------*/
 void	ft_putnbr_p(unsigned long nbr, char *base, int *len);
-void	ft_putnbr_unsigned(unsigned int n, int *len);
-void	ft_putnbr_basehex(unsigned int nbr, char *base, int *len);
+void	ft_putnbr(int n, int *len);
+void	ft_putnbr_base(unsigned int nbr, char *base, int *len);
+
+/*--------------------------------STR_UTILS.c---------------------------------*/
+void	ft_putchar(char c, int *len);
+void	ft_putstr(char *str, int *len);
+int		ft_strlen(char *str);
 
 #endif
