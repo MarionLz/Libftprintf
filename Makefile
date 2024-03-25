@@ -3,17 +3,19 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: malauzie <malauzie@student.42.fr>          +#+  +:+       +#+         #
+#    By: maax <maax@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/20 10:10:11 by malauzie          #+#    #+#              #
-#    Updated: 2023/10/20 16:41:32 by malauzie         ###   ########.fr        #
+#    Updated: 2024/03/25 09:25:01 by maax             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
-SRC = ft_printf.c write.c
+SRC =	ft_printf.c \
+		putnbr.c \
+		putstr.c \
 
 OBJ = $(SRC:.c=.o)
 

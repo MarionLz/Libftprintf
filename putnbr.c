@@ -1,33 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   write.c                                            :+:      :+:    :+:   */
+/*   putnbr.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: malauzie <malauzie@student.42.fr>          +#+  +:+       +#+        */
+/*   By: maax <maax@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 13:37:05 by malauzie          #+#    #+#             */
-/*   Updated: 2023/10/20 15:59:01 by malauzie         ###   ########.fr       */
+/*   Updated: 2024/03/25 09:22:57 by maax             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-void	ft_putchar(char c, int *len)
-{
-	*len += write(1, &c, 1);
-}
-
-void	ft_putstr(char *str, int *len)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-	{
-		*len += write(1, &str[i], 1);
-		i++;
-	}
-}
 
 void	ft_putnbr_p(unsigned long nbr, char *base, int *len)
 {
